@@ -3,7 +3,7 @@ import { Professor } from "./professor";
 
 export class Aluno extends Pessoa {
     curso : string;
-    notas : number
+    notas : number;
     professor : Professor
 
     constructor(nome : string, cpf : string, data_nascimento : Date, endereco : string , curso : string, notas : number, professor : Professor ){
