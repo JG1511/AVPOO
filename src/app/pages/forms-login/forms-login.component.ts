@@ -80,12 +80,3 @@ export class FormsLoginComponent {
 }
 
 
-// const aluno = new Aluno({
-//   nome :this.alunoForm.value.nome_do_aluno,
-//   cpf : this.alunoForm.value.cpf_do_aluno,
-//   data_nascimento : this.alunoForm.value.data_nascimento_do_aluno,
-//   endereco : this.alunoForm.value.endereco_do_aluno,
-//   curso : this.alunoForm.value.curso_do_aluno,
-//   nota : this.alunoForm.value.nota_do_aluno,
-//   professor : this.alunoForm.value.professor
-// })
