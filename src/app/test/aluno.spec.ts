@@ -1,4 +1,4 @@
-import { Aluno } from './aluno';
+import { Aluno } from '../models/aluno';
 
 describe('Aluno', () => {
   it('should create an instance', () => {
