@@ -37,6 +37,21 @@ export class FormsLoginComponent {
       });
       this.teste = this.cadastroService.getAluno();
   }
+  cadastroProfessor() : void{
+    if(!this.professorForm.valid){
+      console.error('Não foi cadastrado nenhum professor');
+    }else{
+      const professor = new Professor(
+        this.professorForm.value.nome_do_professor,
+        this.professorForm.value.cpf_do_professor,
+        new Date(this.professorForm.value.data_nascimento_do_professor),
+        this.professorForm.value.endereco_do_professor,
+        Number(this.professorForm.value.salario_do_professor),
+        this.professorForm.value.especializacao_do_professor,
+        this.professorForm.value.disciplinas_ministradas_do_professor,
+      )
+    }
+  }
 
   cadastroAluno(): void {
     if (!this.alunoForm.valid) {
@@ -54,13 +69,6 @@ export class FormsLoginComponent {
         this.alunoForm.value.professor
       );
       this.cadastroService.addAluno(aluno)
-    }
-  }
-
-  cadastroProfessor() : void{
-    if(!this.professorForm.valid){
-      console.error('Não foi cadastrado nenhum professor');
-      
     }
   }
 
