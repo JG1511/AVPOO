@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CadastroService } from '../../services/cadastro.service';
 import { Professor } from '../../models/professor';
 import { Aluno } from '../../models/aluno';
 
 @Component({
   selector: 'app-forms-login',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './forms-login.component.html',
   styleUrl: './forms-login.component.css'
 })
 export class FormsLoginComponent {
   alunoForm: FormGroup;
   professorForm: FormGroup;
+
+  teste : Aluno[] = []
 
   constructor(private cadastroService: CadastroService) {
     this.alunoForm = new FormGroup({
@@ -23,7 +25,7 @@ export class FormsLoginComponent {
       curso_do_aluno: new FormControl('', Validators.required),
       nota_do_aluno: new FormControl('', Validators.required),
       professor: new FormControl('', Validators.required)
-    }),
+    });
       this.professorForm = new FormGroup({
         nome_do_professor: new FormControl('', Validators.required),
         cpf_do_professor: new FormControl('', Validators.required),
@@ -32,7 +34,8 @@ export class FormsLoginComponent {
         salario_do_professor: new FormControl('', Validators.required),
         especializacao_do_professor: new FormControl('', Validators.required),
         disciplinas_ministradas_do_professor: new FormControl('', Validators.required)
-      })
+      });
+      this.teste = this.cadastroService.getAluno();
   }
 
   cadastroAluno(): void {
