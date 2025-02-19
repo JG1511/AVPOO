@@ -4,7 +4,7 @@ import { FormsLoginComponent } from "./pages/forms-login/forms-login.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsLoginComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

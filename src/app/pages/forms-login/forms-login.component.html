@@ -3,37 +3,37 @@
 <form [formGroup]="professorForm" (ngSubmit)="cadastroProfessor()">
   <div>
     <label for="nome_do_professor">Nome:</label>
-    <input type="text" id="nome_do_professor" formControlName ="nome_do_professor" required="">
+    <input type="text" id="nome_do_professor" formControlName ="nome_do_professor" required>
   </div>
 
   <div>
     <label for="cpf_do_professor">CPF:</label>
-    <input type="text" id="cpf_do_professor" formControlName ="cpf_do_professor" required="">
+    <input type="text" id="cpf_do_professor" formControlName ="cpf_do_professor" required>
   </div>
 
   <div>
     <label for="data_nascimento_do_professor">Data de Nascimento:</label>
-    <input type="date" id="data_nascimento_do_professor" formControlName ="data_nascimento_do_professor" required="">
+    <input type="date" id="data_nascimento_do_professor" formControlName ="data_nascimento_do_professor" required>
   </div>
 
   <div>
     <label for="endereco_do_professor">Endereço:</label>
-    <input type="text" id="endereco_do_professor" formControlName ="endereco_do_professor" required="">
+    <input type="text" id="endereco_do_professor" formControlName ="endereco_do_professor" required>
   </div>
 
   <div>
     <label for="salario_do_professor">Salario:</label>
-    <input type="number" id="salario_do_professor" formControlName ="salario_do_professor" required="">
+    <input type="number" id="salario_do_professor" formControlName ="salario_do_professor" required>
   </div>
 
   <div>
     <label for="especializacao_do_professor">Especialização:</label>
-    <input type="text" id="especializacao_do_professor" formControlName ="especializacao_do_professor" required="">
+    <input type="text" id="especializacao_do_professor" formControlName ="especializacao_do_professor" required>
   </div>
 
   <div>
     <label for="disciplinas_ministradas_do_professor">Disciplinas Ministradas:</label>
-    <input type="text" id="especializacao_do_professor" formControlName ="especializacao_do_professor" required="">
+    <input type="text" id="disciplinas_ministradas_do_professor" formControlName ="disciplinas_ministradas_do_professor" required>
   </div>
 
   <button type="submit" [disabled]="professorForm.invalid">Cadastrar Professor</button>
@@ -54,23 +54,23 @@
     </div>
     
     <div>
-      <label for="data_nascimento">Data de Nascimento:</label>
-      <input type="date" id="data_nascimento" formControlName="data_nascimento_do_aluno" required>
+      <label for="data_nascimento_do_aluno">Data de Nascimento:</label>
+      <input type="date" id="data_nascimento_do_aluno" formControlName="data_nascimento_do_aluno" required>
     </div>
     
     <div>
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" formControlName="endereco_do_aluno" required>
+      <label for="endereco_do_aluno">Endereço:</label>
+      <input type="text" id="endereco_do_aluno" formControlName="endereco_do_aluno" required>
     </div>
     
     <div>
-      <label for="curso">Curso:</label>
-      <input type="text" id="curso" formControlName="curso_do_aluno" required>
+      <label for="curso_do_aluno">Curso:</label>
+      <input type="text" id="curso_do_aluno" formControlName="curso_do_aluno" required>
     </div>
     
     <div>
-      <label for="nota">Nota:</label>
-      <input type="number" id="nota" formControlName="nota_do_aluno" required>
+      <label for="nota_do_aluno">Nota:</label>
+      <input type="number" id="nota_do_aluno" formControlName="nota_do_aluno" required>
     </div> 
     
     <button type="submit" [disabled]="alunoForm.invalid">Cadastrar Aluno</button>

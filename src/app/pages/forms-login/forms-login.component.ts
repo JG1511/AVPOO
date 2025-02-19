@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CadastroService } from '../../services/cadastro.service';
 import { Professor } from '../../models/professor';
 import { Aluno } from '../../models/aluno';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forms-login',
@@ -16,9 +17,7 @@ export class FormsLoginComponent {
 
   professorCadastrado?: Professor
 
-  teste: Aluno[] = []
-
-  constructor(private cadastroService: CadastroService) {
+  constructor(private cadastroService: CadastroService, private router: Router) {
     this.alunoForm = new FormGroup({
       nome_do_aluno: new FormControl('', Validators.required),
       cpf_do_aluno: new FormControl('', Validators.required),
@@ -26,7 +25,6 @@ export class FormsLoginComponent {
       endereco_do_aluno: new FormControl('', Validators.required),
       curso_do_aluno: new FormControl('', Validators.required),
       nota_do_aluno: new FormControl('', Validators.required),
-      professor: new FormControl('', Validators.required)
     });
     this.professorForm = new FormGroup({
       nome_do_professor: new FormControl('', Validators.required),
@@ -37,7 +35,6 @@ export class FormsLoginComponent {
       especializacao_do_professor: new FormControl('', Validators.required),
       disciplinas_ministradas_do_professor: new FormControl('', Validators.required)
     });
-    this.teste = this.cadastroService.getAluno();
   }
   cadastroProfessor(): void {
     if (!this.professorForm.valid) {
@@ -53,17 +50,17 @@ export class FormsLoginComponent {
         this.professorForm.value.especializacao_do_professor,
         this.professorForm.value.disciplinas_ministradas_do_professor,
       )
+      alert("Professor cadastrado")
       this.professorCadastrado = professor;
     }
   }
 
   cadastroAluno(): void {
-    if (!this.alunoForm.valid) {
-      console.error('Não foi cadastrado nenhum aluno');
-    } if (!this.professorCadastrado) {
+    if (!this.professorCadastrado) {
       console.error('Nenhum professor cadastrado! Cadastre um professor antes de adicionar um aluno.');
       return;
-    } else {
+    }
+    if (this.alunoForm.valid) {
       const aluno = new Aluno(
         this.alunoForm.value.nome_do_aluno,
         this.alunoForm.value.cpf_do_aluno,
@@ -72,8 +69,10 @@ export class FormsLoginComponent {
         this.alunoForm.value.curso_do_aluno,
         Number(this.alunoForm.value.nota_do_aluno),
         this.professorCadastrado
-      );
+      )
+      alert("Professor cadastrado")
       this.cadastroService.addAluno(aluno)
+      this.router.navigate(['/home-lista'])
     }
   }
 

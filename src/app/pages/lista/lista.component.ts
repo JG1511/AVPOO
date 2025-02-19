@@ -9,11 +9,13 @@ import { DatePipe } from '@angular/common';
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.css'
 })
-export class ListaComponent {
+export class ListaComponent  {
   
   pessoas : Aluno[] = []
 
-  constructor(cadastroService : CadastroService){
-    this.pessoas = cadastroService.getAluno()
-  }
+  constructor( private cadastroService : CadastroService){
+    this.pessoas = this.cadastroService.getAluno();
+    }
+
+ 
 }
