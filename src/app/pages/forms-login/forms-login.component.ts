@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CadastroService } from '../../services/cadastro.service';
 import { Professor } from '../../models/professor';
 import { Aluno } from '../../models/aluno';
@@ -15,7 +15,9 @@ export class FormsLoginComponent {
   alunoForm: FormGroup;
   professorForm: FormGroup;
 
-  professorCadastrado?: Professor
+  professorCadastrado?: Professor;
+  quantidadeDeAlunos : number = 1;
+  flag = false;
 
   constructor(private cadastroService: CadastroService, private router: Router) {
     this.alunoForm = new FormGroup({
@@ -49,11 +51,12 @@ export class FormsLoginComponent {
         Number(this.professorForm.value.salario_do_professor),
         this.professorForm.value.especializacao_do_professor,
         this.professorForm.value.disciplinas_ministradas_do_professor,
-      )
-      alert("Professor cadastrado")
+      );
+      alert("Professor cadastrado");
       this.professorCadastrado = professor;
-    }
-  }
+      this.flag = true;
+    };
+  };
 
   cadastroAluno(): void {
     if (!this.professorCadastrado) {
@@ -70,11 +73,39 @@ export class FormsLoginComponent {
         Number(this.alunoForm.value.nota_do_aluno),
         this.professorCadastrado
       )
-      alert("Professor cadastrado")
+      alert("aluno cadastrado")
       this.cadastroService.addAluno(aluno)
-      this.router.navigate(['/home-lista'])
     }
   }
+  finalizar() : void {
+    this.router.navigate(['/home-lista'])
+  }
+  // cadastroAluno(): void {
+  //   if (!this.professorCadastrado) {
+  //     console.error('Nenhum professor cadastrado! Cadastre um professor antes de adicionar um aluno.');
+  //     return;
+  //   }
+  //   if (this.alunoForm.valid) {
+  //    for( let i = 0; i < this.quantidadeDeAlunos; i ++){
+  //     const aluno = new Aluno(
+  //       this.alunoForm.value.nome_do_aluno,
+  //       this.alunoForm.value.cpf_do_aluno,
+  //       new Date(this.alunoForm.value.data_nascimento_do_aluno),
+  //       this.alunoForm.value.endereco_do_aluno,
+  //       this.alunoForm.value.curso_do_aluno,
+  //       Number(this.alunoForm.value.nota_do_aluno),
+  //       this.professorCadastrado
+  //     )
+  //     alert("aluno cadastrado")
+      
+  //     this.cadastroService.addAluno(aluno);
+      
+  //     // this.router.navigate(['/home-lista'])
+  //    };
+  //    this.router.navigate(['/home-lista']);
+  //    this.alunoForm.reset();
+  //   }
+  // }
 
 }
 

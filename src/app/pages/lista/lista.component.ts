@@ -16,6 +16,9 @@ export class ListaComponent  {
   constructor( private cadastroService : CadastroService){
     this.pessoas = this.cadastroService.getAluno();
     }
+    professorJaListado(index: number, professorCpf: string | undefined): boolean {
+      return this.pessoas.slice(0, index).some(p => p.professor?.cpf === professorCpf);
+    }
 
  
 }

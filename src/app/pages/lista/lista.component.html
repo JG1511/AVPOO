@@ -1,18 +1,18 @@
-<h2>Lista teste</h2>
-@for (aluno of pessoas; track $index) {
+<h2>Lista de Alunos</h2>
 
-    <li><Strong>Nome:</Strong> {{aluno.nome}}</li>
-    <li><Strong>CPF:</Strong>  {{aluno.cpf}}</li>
-    <li><Strong>Data de Nascimento:</Strong> {{aluno.data_nascimento  | date: 'dd/MM/yyyyy' }}</li>
-    <li><Strong>Endreço:</Strong> {{aluno.endereco}}</li>
-    <li><Strong>Curso:</Strong> {{aluno.curso}}</li>
-    <li><Strong>Nota:</Strong> {{aluno.notas}}</li>
-    
-    <h3>Professor Responsável</h3>
-    @if (aluno.professor) {
-        <li><strong>Nome:</strong>{{aluno.professor.nome}} </li>
-        <li><strong>CPF:</strong>{{aluno.professor.cpf}} </li>
-        <li><strong>Espicialização:</strong>{{aluno.professor.especializacao}}</li>
-        <li><strong>Disciplinas:</strong>{{aluno.professor.disciplinas_ministradas}} </li>
+@for (aluno of pessoas; track $index) {
+    @if (aluno.professor && !professorJaListado($index, aluno.professor?.cpf)) {
+        <h3>Professor Responsável</h3>
+        <li><strong>Nome:</strong> {{ aluno.professor.nome }} </li>
+        <li><strong>CPF:</strong> {{ aluno.professor.cpf }} </li>
+        <li><strong>Especialização:</strong> {{ aluno.professor.especializacao }}</li>
+        <li><strong>Disciplinas:</strong> {{ aluno.professor.disciplinas_ministradas }} </li>
     }
+    <h3>Aluno</h3>
+        <li><strong>Nome:</strong> {{ aluno.nome }}</li>
+        <li><strong>CPF:</strong> {{ aluno.cpf }}</li>
+        <li><strong>Data de Nascimento:</strong> {{ aluno.data_nascimento | date: 'dd/MM/yyyy' }}</li>
+        <li><strong>Endereço:</strong> {{ aluno.endereco }}</li>
+        <li><strong>Curso:</strong> {{ aluno.curso }}</li>
+        <li><strong>Nota:</strong> {{ aluno.notas }}</li>
 }

@@ -36,12 +36,13 @@
     <input type="text" id="disciplinas_ministradas_do_professor" formControlName ="disciplinas_ministradas_do_professor" required>
   </div>
 
+
   <button type="submit" [disabled]="professorForm.invalid">Cadastrar Professor</button>
 
 </form>
 
 
-@if (professorForm.valid) {
+@if (flag) {
   <form [formGroup]="alunoForm" (ngSubmit)="cadastroAluno()">
     <div>
       <label for="nome_aluno">Nome:</label>
@@ -73,9 +74,11 @@
       <input type="number" id="nota_do_aluno" formControlName="nota_do_aluno" required>
     </div> 
     
-    <button type="submit" [disabled]="alunoForm.invalid">Cadastrar Aluno</button>
+    <button type="submit" >Cadastrar Aluno</button>
   </form>
 }
+
+  <button (click)="finalizar()">Finalizar</button>
 
 
 
