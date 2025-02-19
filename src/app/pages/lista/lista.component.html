@@ -1,0 +1,18 @@
+<h2>Lista teste</h2>
+@for (aluno of pessoas; track $index) {
+
+    <li><Strong>Nome:</Strong> {{aluno.nome}}</li>
+    <li><Strong>CPF:</Strong>  {{aluno.cpf}}</li>
+    <li><Strong>Data de Nascimento:</Strong> {{aluno.data_nascimento  | date: 'dd/MM/yyyyy' }}</li>
+    <li><Strong>Endreço:</Strong> {{aluno.endereco}}</li>
+    <li><Strong>Curso:</Strong> {{aluno.curso}}</li>
+    <li><Strong>Nota:</Strong> {{aluno.notas}}</li>
+    
+    <h3>Professor Responsável</h3>
+    @if (aluno.professor) {
+        <li><strong>Nome:</strong>{{aluno.professor.nome}} </li>
+        <li><strong>CPF:</strong>{{aluno.professor.cpf}} </li>
+        <li><strong>Espicialização:</strong>{{aluno.professor.especializacao}}</li>
+        <li><strong>Disciplinas:</strong>{{aluno.professor.disciplinas_ministradas}} </li>
+    }
+}
