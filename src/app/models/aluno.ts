@@ -12,4 +12,8 @@ export class Aluno extends Pessoa {
         this.notas = notas
         this.professor = professor
     }
+
+    override dados(): string {
+        return this.curso
+    }
 }

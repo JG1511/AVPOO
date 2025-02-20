@@ -10,4 +10,8 @@ export class Pessoa {
         this.data_nascimento = data_nascimento;
         this.endereco = endereco;
     }
+
+    dados () : string{
+        return this.nome , this.cpf , this.endereco
+    }
 }
