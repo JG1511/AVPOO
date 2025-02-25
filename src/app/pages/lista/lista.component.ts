@@ -20,5 +20,8 @@ export class ListaComponent  {
       return this.pessoas.slice(0, index).some(p => p.professor?.cpf === professorCpf);
     }
 
+    alunoJaListado(index : number,alunoCpf : string | undefined) : boolean{
+      return this.pessoas.slice(0,index).some(a => a.cpf === alunoCpf);
+    }
  
 }

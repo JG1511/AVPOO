@@ -74,7 +74,7 @@
       <input type="number" id="nota_do_aluno" formControlName="nota_do_aluno" required>
     </div> 
     
-    <button type="submit" >Cadastrar Aluno</button>
+    <button type="submit"  [disabled]="alunoForm.invalid">Cadastrar Aluno</button>
   </form>
 }
 
